@@ -97,6 +97,8 @@ app.post("/delete/:type", (req, res) => {
     })
 });
 
-app.listen(3000, () => {
+const port = process.env.PORT;
+
+app.listen(port || 3000, () => {
     console.log("Port started at 3000");
 });
