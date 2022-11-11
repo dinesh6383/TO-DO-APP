@@ -1,0 +1,26 @@
+<%- include("partials/header") -%>     
+    <h1 class="list-title">
+        <%= listTitle %>
+    </h1>
+    <div class="input-box">
+        <form action="/<%= listTitle %>" method="post">
+            <input type="text" name="personalTodo" placeholder="Add list here" autocomplete="off">
+            <button type="submit" name="listName" value="<%= listTitle %>">Add</button>
+        </form>
+    </div>
+    <div class="list-box">
+                <% listItems.forEach((item) => { %>
+                    <div class="list">
+                        <div class="delete">
+                            <form action="/delete/<%=listTitle%>" method="post">
+                                    <input type="checkbox" name="delItemid" value="<%= item._id %>" onclick="this.form.submit()">
+                            </form>
+                        </div>
+                        <p><%= item.name %></p>
+                    </div>
+                <% }); %>
+    </div>
+   </div>
+ </body>
+</html>
+<%- include("partials/footer") -%>     
